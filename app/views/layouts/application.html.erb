@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaBook</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+    	<%= render 'layouts/header' %>
+      
+      <% flash.each do |type, message| %>
+        <div class="alert <%= bootstrap_class_for(type) %> fade-in" style="box-shadow: 2px 2px 10px 0px;border: 1px solid black;">
+          <button class="close" data-dismiss="alert" >X</button>
+          <%= message %>
+        </div>
+      <% end %> 
+    </header>
+
+    <section>
+    <div class="container">
+      <%= yield %>
+    </div>
+    </section>
+  </body>
+</html>
